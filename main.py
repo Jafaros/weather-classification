@@ -37,12 +37,13 @@ def main():
             y, result["predictions"], labels=[0, 1], target_names=["No", "Yes"],
             digits=4, zero_division=0,
         ))
-        print("Confusion matrix (řádky = skutečnost, sloupce = predikce; No, Yes):")
+        print("Confusion matrix:")
         print(result["confusion_matrix"])
 
         ConfusionMatrixDisplay(
             result["confusion_matrix"], display_labels=["No", "Yes"],
         ).plot(ax=axis, cmap="Blues", colorbar=False, values_format="d")
+        
         axis.set_title(name)
         axis.set_xlabel("Predikovaná třída")
         axis.set_ylabel("Skutečná třída")
